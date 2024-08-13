@@ -16,6 +16,15 @@
   ],
   "sites": [
     {
+      "key": "豆瓣",
+      "name": "豆瓣推荐",
+      "type": 3,
+      "api": "csp_DouDou",
+      "searchable": 0,
+      "quickSearch": 0,
+      "filterable": 0
+    },
+    {
       "key": "hnzy",
       "name": "红牛资源",
       "type": 0,
@@ -29,7 +38,7 @@
       "key": "xlzy",
       "name": "新浪资源",
       "type": 0,
-      "api": "https://www.hongniuzy2.com/api.php/provide/vod/from/hnm3u8/at/xml/",
+      "api": "http://dsakf23665.com/api.php/provide/vod/from/NBY",
       "playUrl": "https://www.xinlangjiexi.com/m3u8/?url=",
       "searchable": 1,
       "quickSearch": 1,
@@ -308,11 +317,14 @@
         "动作片",
         "喜剧片",
         "爱情片",
-        "科幻片",
-        "恐怖片",
-        "剧情片",
-        "战争片",
         "国产动漫",
+        "国内综艺",
+        "港台综艺",
+        "大陆综艺",
+        "日韩综艺",
+        "欧美综艺",
+        "海外综艺",
+        "电影解说"
       ],
       "searchable": 1,
       "quickSearch": 1
@@ -393,7 +405,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
-    },
+    }
   ],
   "doh": [
     {
