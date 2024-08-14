@@ -77,18 +77,6 @@
       "changeable": 1
     },
     {
-      "key": "厂长",
-      "name": "厂长",
-      "type": 3,
-      "api": "csp_NewCz",
-      "timeout": 30,
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "ext": "https://www.czys.pro/"
-    },
-    {
       "key": "Lib",
       "name": "立播",
       "type": 3,
@@ -100,15 +88,6 @@
         "Cloud-drive": "tvfan/Cloud-drive.txt",
         "from": "4k|auto"
       }
-    },
-    {
-      "key": "短剧",
-      "name": "短剧",
-      "type": 3,
-      "api": "csp_Djtt",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
     },
     {
       "key": "煤球",
@@ -124,17 +103,6 @@
       "name": "文采",
       "type": 3,
       "api": "csp_Jpys",
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1
-    },
-    {
-      "key": "蛋蛋",
-      "name": "蛋蛋",
-      "type": 3,
-      "api": "csp_Cddys",
-      "timeout": 15,
       "playerType": 2,
       "searchable": 1,
       "quickSearch": 1,
@@ -172,18 +140,6 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
-    },
-    {
-      "key": "热播",
-      "name": "热播",
-      "type": 3,
-      "api": "csp_AppTT",
-      "timeout": 15,
-      "playerType": 2,
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 1,
-      "ext": "AO7TcBkd8I/B5wQc4Qma+pU="
     },
     {
       "key": "萌米",
