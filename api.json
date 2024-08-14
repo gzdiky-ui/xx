@@ -1,5 +1,5 @@
 {
-  "spider": "https://github.com/gzdiky-ui/xx/blob/main/spider.jar;md5;20d2ee18388ea23295700d9cfb6648c8",
+  "spider": "https://github.com/gzdiky-ui/xx/blob/main/spider.jar",
   "wallpaper": "https://api.likepoems.com/img/bing",
   "sites": [
     {
@@ -140,7 +140,7 @@
       "key": "爱奇艺",
       "name": "爱奇艺｜视频",
       "type": 3,
-      "api": ".https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
+      "api": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
       "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/%E7%88%B1%E5%A5%87%E8%89%BA.js"
     },
     {
@@ -154,29 +154,29 @@
       "key": "腾讯视频",
       "name": "腾讯｜视频",
       "type": 3,
-      "api": "./lib/drpy2.min.js",
-      "ext": "./lib/腾讯视频.js"
+      "api": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/腾讯视频.js"
     },
     {
       "key": "优酷视频",
       "name": "优酷｜视频",
       "type": 3,
-      "api": "./lib/drpy2.min.js",
-      "ext": "./lib/优酷视频.js"
+      "api": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/优酷视频.js"
     },
     {
       "key": "芒果视频",
       "name": "芒果｜视频",
       "type": 3,
-      "api": "./lib/drpy2.min.js",
-      "ext": "./lib/芒果视频.js"
+      "api": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/芒果视频.js"
     },
     {
       "key": "搜狗视频",
       "name": "搜狗｜视频",
       "type": 3,
-      "api": "./lib/drpy2.min.js",
-      "ext": "./lib/搜狗视频.js"
+      "api": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/搜狗视频.js"
     },
     {
       "key": "红牛资源",
@@ -188,8 +188,8 @@
       "categories": [
         "动作片",
         "动漫电影",
-        "喜剧片",
-        "爱情片",
+        "动漫",
+        "国产动漫",
         "科幻片",
         "恐怖片",
         "剧情片",
@@ -228,7 +228,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "ext": "./lib/BT天堂.json"
+      "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/BT天堂.json"
     },
     {
       "key": "push_agent",
