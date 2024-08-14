@@ -137,12 +137,11 @@
       "filterable": 1,
       "ext": "./lib/新视觉.json"
     },
-    },
     {
       "key": "爱奇艺",
       "name": "爱奇艺｜视频",
       "type": 3,
-      "api": ".https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
+      "api": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
       "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/爱奇艺.js"
     },
     {
@@ -246,9 +245,69 @@
   ],
   "parses": [
     {
+      "name": "Web聚合",
+      "type": 3,
+      "url": "Web"
+    },
+    {
       "name": "聚合",
       "type": 3,
       "url": "Demo"
+    },
+    {
+      "name": "解析1",
+      "type": 1,
+      "url": "http://pandown.pro/app/kkdy.php?url=",
+      "ext": {
+        "flag": [
+          "qq",
+          "腾讯",
+          "qiyi",
+          "爱奇艺",
+          "奇艺",
+          "youku",
+          "优酷",
+          "sohu",
+          "搜狐",
+          "letv",
+          "乐视",
+          "mgtv",
+          "芒果",
+          "rx",
+          "ltnb",
+          "bilibili",
+          "1905",
+          "xigua"
+        ]
+      }
+    },
+    {
+      "name": "解析2",
+      "type": 1,
+      "url": "https://api.cygc.xyz/analysis/?url=",
+      "ext": {
+        "flag": [
+          "qq",
+          "腾讯",
+          "qiyi",
+          "爱奇艺",
+          "奇艺",
+          "youku",
+          "优酷",
+          "sohu",
+          "搜狐",
+          "letv",
+          "乐视",
+          "imgo",
+          "mgtv",
+          "芒果",
+          "rx",
+          "ltnb",
+          "bilibili",
+          "1905",
+          "xigua"
+        ]
+      }
     },
     {
       "name": "XMY专线",
