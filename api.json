@@ -1,5 +1,5 @@
 {
-  "spider": "./spider.jar;md5;20d2ee18388ea23295700d9cfb6648c8",
+  "spider": "https://github.com/gzdiky-ui/xx/blob/main/spider.jar;md5;20d2ee18388ea23295700d9cfb6648c8",
   "wallpaper": "https://api.likepoems.com/img/bing",
   "sites": [
     {
@@ -136,13 +136,12 @@
       "filterable": 1,
       "ext": "./lib/新视觉.json"
     },
-    },
     {
       "key": "爱奇艺",
       "name": "爱奇艺｜视频",
       "type": 3,
-      "api": "./lib/drpy2.min.js",
-      "ext": "./lib/爱奇艺.js"
+      "api": ".https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/drpy2.min.js",
+      "ext": "https://raw.githubusercontent.com/gzdiky-ui/xx/main/lib/%E7%88%B1%E5%A5%87%E8%89%BA.js"
     },
     {
       "key": "追剧迷",
