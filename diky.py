@@ -2,9 +2,9 @@ import requests
 import csv
 
 # Cloudflare API参数
-api_token = "c9b790a2b63b5edca2ab6fd69c6073ef455ae"
-zone_id = "f128eafce93a9f195baa5ceb78c726d8"
-domain = "hk.gdiky.cc.ua"  # 您的二级域名
+api_token = "PdoLopFXP8BYw7-GQLuEK7CcLZBSH
+zone_id = "ffcdf9228f4366a62225d2c93ad75e8
+domain = "hk.gzdiky.cc.ua"  # 您的二级域名
 
 # Cloudflare API端点
 api_url = f"https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records"
