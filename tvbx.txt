@@ -216,19 +216,12 @@
       "key": "IK",
       "name": "IK",
       "type": 1,
-      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/",
+      "api": "https://ikunzyapi.com/api.php/provide/vod",
       "categories": [
+        "国产动漫",
         "动作片",
         "喜剧片",
         "爱情片",
-        "国产动漫",
-        "国内综艺",
-        "港台综艺",
-        "大陆综艺",
-        "日韩综艺",
-        "欧美综艺",
-        "海外综艺",
-        "电影解说"
       ],
       "searchable": 1,
       "quickSearch": 1
