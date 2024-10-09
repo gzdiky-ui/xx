@@ -23,7 +23,7 @@
       "playUrl": "https://www.hnjiexi.com/m3u8/?url=",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
     },
     {
       "key": "wolong",
@@ -49,15 +49,24 @@
         "国产剧",
       ]
     },
+      "key": "semao",
+      "name": "色猫资源",
+      "type": 0,
+      "api": "https://caiji.semaozy.net/inc/api.php",
+      "playUrl": "https://jx.wujinkk.com/dplayer/?url=",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+    },
     {
       "key": "yparse",
       "name": "云解析资源",
       "type": 0,
-      "api": "https://api.yparse.com/api/json",
-      "playUrl": "https://jx.yparse.com/index.php?url=",
+      "api": "https://api.yparse.com/api/m3u8/xml",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
+      "playerType": 1,
     },
     {
       "key": "1080",
@@ -67,14 +76,14 @@
       "playUrl": "https://www.gszyv.com/m3u8/?url=",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
     },
     {
       "key": "xinlang",
       "name": "新浪资源",
-      "type": 1,
+      "type": 0,
       "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlm3u8/at/xmlsea/",
-      "playUrl": "https://www.xinlangjiexi.com/m3u8/?url=",
+      "playerType": 1,
       "searchable": 1,
       "categories": [
         "动漫",
