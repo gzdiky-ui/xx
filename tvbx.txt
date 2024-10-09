@@ -22,10 +22,8 @@
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/from/hnm3u8/at/xml/",
       "playUrl": "https://www.hnjiexi.com/m3u8/?url=",
       "searchable": 1,
-      "categories": [
-        "动漫",
-        "国产剧",
-      ]
+      "quickSearch": 1,
+      "filterable": 1
     },
     {
       "key": "wolong",
@@ -55,7 +53,7 @@
       "key": "yparse",
       "name": "云解析资源",
       "type": 0,
-      "api": "https://api.yparse.com/api/m3u8/xml",
+      "api": "https://api.yparse.com/api/json",
       "playUrl": "https://jx.yparse.com/index.php?url=",
       "searchable": 1,
       "quickSearch": 1,
@@ -80,7 +78,7 @@
       "searchable": 1,
       "categories": [
         "动漫",
-        "国产剧",
+        "国产动漫",
       ]
     },
     {
