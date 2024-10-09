@@ -18,7 +18,7 @@
     {
       "key": "hnzy",
       "name": "红牛资源",
-      "type": 1,
+      "type": 0,
       "api": "https://www.hongniuzy2.com/api.php/provide/vod/from/hnm3u8/at/xml/",
       "playUrl": "https://www.hnjiexi.com/m3u8/?url=",
       "searchable": 1,
@@ -52,7 +52,7 @@
     {
       "key": "yparse",
       "name": "云解析资源",
-      "type": 1,
+      "type": 0,
       "api": "https://api.yparse.com/api/m3u8/xml",
       "playUrl": "",
       "searchable": 1,
