@@ -32,7 +32,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
       - DIRECT
-  - name: Github
+  - name: 🌏 Github
     type: select
     proxies:
       - 🚀 节点选择
@@ -46,7 +46,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
       - DIRECT
-  - name: Cloudflare
+  - name: 🌏 Cloudflare
     type: select
     proxies:
       - 🚀 节点选择
@@ -60,7 +60,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
       - DIRECT
-  - name: TikTok
+  - name: 📹 TikTok
     type: select
     proxies:
       - 🚀 节点选择
@@ -556,9 +556,9 @@ rules:
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
   - "GEOIP,CN,🎯 全球直连"
-  - "RULE-SET,Cloudflare,Cloudflare"
-  - "RULE-SET,Github,Github"
-  - "RULE-SET,TikTok,TikTok"
+  - "RULE-SET,Cloudflare,🌏 Cloudflare"
+  - "RULE-SET,Github,🌏 Github"
+  - "RULE-SET,TikTok,📹 TikTok"
   - "RULE-SET,Bing,Ⓜ️ 微软Bing"
   - "RULE-SET,OneDrive,Ⓜ️ 微软云盘"
   - "RULE-SET,Microsoft,Ⓜ️ 微软服务"
