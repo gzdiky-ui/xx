@@ -35,6 +35,7 @@ proxy-groups:
   - name: 🌏 Github
     type: select
     proxies:
+      - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎥 奈飞节点
@@ -45,10 +46,10 @@ proxy-groups:
       - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
       - 🚀 手动切换
-      - DIRECT
   - name: 🌏 Cloudflare
     type: select
     proxies:
+      - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎥 奈飞节点
@@ -59,10 +60,10 @@ proxy-groups:
       - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
       - 🚀 手动切换
-      - DIRECT
   - name: 📹 TikTok
     type: select
     proxies:
+      - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎥 奈飞节点
@@ -350,29 +351,26 @@ rule-providers:
     format: text
     type: http
   Github:
-    type: http
-    behavior: classical
-    interval: 86400
-    format: yaml
-    proxy: DIRECT
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
     path: ./ruleSet/Github.yaml
-  Cloudflare:
-    type: http
     behavior: classical
     interval: 86400
-    format: yaml
-    proxy: DIRECT
+    format: text
+    type: http
+  Cloudflare:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflare/Cloudflare.yaml
     path: ./RuleSet/Cloudflare.yaml
-  TikTok:
-    type: http
     behavior: classical
     interval: 86400
-    format: yaml
-    proxy: DIRECT
+    format: text
+    type: http
+  TikTok:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok_No_Resolve.yaml
     path: ./ruleSet/TikTok.yaml
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http    
   Bing:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list
     path: ./ruleset/Bing.list
