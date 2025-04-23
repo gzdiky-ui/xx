@@ -125,6 +125,7 @@ proxy-groups:
   - name: 📺 哔哩哔哩
     type: select
     proxies:
+      - DIRECT
       - 🎯 全球直连
       - 🇨🇳 台湾节点
       - 🇭🇰 香港节点
