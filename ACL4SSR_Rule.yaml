@@ -89,7 +89,12 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
   - name: 📹 油管视频
-    type: select
+    type: url-test
+    tolerance: 100
+    interval: 60
+    url: https://i.ytimg.com/generate_204
+    timeout: 2000
+    max-failed-times: 3
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -352,26 +357,27 @@ rule-providers:
     format: text
     type: http
   Github:
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml
-    path: ./ruleSet/Github.yaml
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Github.list
+    path: ./ruleSet/Github.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Cloudflare:
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflare/Cloudflare.yaml
-    path: ./RuleSet/Cloudflare.yaml
+    #url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflare/Cloudflare.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloudflarecn/Cloudflarecn.list
+    path: ./RuleSet/Cloudflare.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   TikTok:
-    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok_No_Resolve.yaml
-    path: ./ruleSet/TikTok.yaml
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/TikTok.list
+    path: ./ruleSet/TikTok.list
     behavior: classical
     interval: 86400
     format: text
-    type: http    
+    type: http
   Bing:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list
     path: ./ruleset/Bing.list
@@ -529,6 +535,13 @@ rule-providers:
   ChinaCompanyIp:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Discord:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Discord.list
+    path: ./ruleset/Discord.list
     behavior: classical
     interval: 86400
     format: text
