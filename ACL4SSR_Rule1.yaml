@@ -61,7 +61,6 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      proxies:
         - ♻️ 自动选择
         - 🇭🇰 香港节点
         - 🇨🇳 台湾节点
