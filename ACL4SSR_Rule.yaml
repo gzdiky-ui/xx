@@ -581,8 +581,6 @@ rule-providers:
 rules:
   - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
   - "PROCESS-NAME,subs-check,🎯 全球直连"
-  - "PROCESS-NAME,subs-check.exe,📢 谷歌FCM"
-  - "PROCESS-NAME,subs-check,📢 谷歌FCM"
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
   - "RULE-SET,UnBan,🎯 全球直连"
   - "RULE-SET,BanAD,🛑 广告拦截"
