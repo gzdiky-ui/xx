@@ -5,6 +5,7 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
+      - DE 德国节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -25,6 +26,7 @@ proxy-groups:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🇸🇬 狮城节点
+      - DE 德国节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇯🇵 日本节点
@@ -39,6 +41,7 @@ proxy-groups:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎥 奈飞节点
+      - DE 德国节点
       - 🇸🇬 狮城节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
@@ -55,6 +58,7 @@ proxy-groups:
       - 🎥 奈飞节点
       - 🇸🇬 狮城节点
       - 🇭🇰 香港节点
+      - DE 德国节点
       - 🇨🇳 台湾节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -68,6 +72,7 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎥 奈飞节点
       - 🇸🇬 狮城节点
+      - DE 德国节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇯🇵 日本节点
@@ -83,6 +88,7 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
+      - DE 德国节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
@@ -99,6 +105,7 @@ proxy-groups:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🇸🇬 狮城节点
+      - DE 德国节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇯🇵 日本节点
@@ -113,6 +120,7 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎥 奈飞节点
       - 🇸🇬 狮城节点
+      - DE 德国节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇯🇵 日本节点
@@ -142,6 +150,7 @@ proxy-groups:
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
+      - DE 德国节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
@@ -164,6 +173,7 @@ proxy-groups:
       - 🇺🇲 美国节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
+      - DE 德国节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇰🇷 韩国节点
@@ -175,6 +185,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🇺🇲 美国节点
       - 🇭🇰 香港节点
+      - DE 德国节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
@@ -189,6 +200,7 @@ proxy-groups:
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
+      - DE 德国节点
       - 🇯🇵 日本节点
       - 🇰🇷 韩国节点
       - 🚀 手动切换
@@ -200,6 +212,7 @@ proxy-groups:
       - 🇺🇲 美国节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
+      - DE 德国节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇰🇷 韩国节点
@@ -211,6 +224,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🇺🇲 美国节点
       - 🇭🇰 香港节点
+      - DE 德国节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
@@ -223,6 +237,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🇺🇲 美国节点
       - 🇭🇰 香港节点
+      - DE 德国节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
@@ -253,12 +268,16 @@ proxy-groups:
       - REJECT
       - DIRECT
   - name: 🐟 漏网之鱼
-    type: select
+    type: url-test
+    include-all: true
+    interval: 300
+    tolerance: 50
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
       - DIRECT
       - 🇭🇰 香港节点
+      - DE 德国节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
@@ -267,7 +286,7 @@ proxy-groups:
       - 🚀 手动切换
   - name: 🇭🇰 香港节点
     include-all: true
-    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong|其他
     type: url-test
     interval: 300
     tolerance: 50
@@ -278,9 +297,15 @@ proxy-groups:
     interval: 300
     tolerance: 50
   - name: 🇺🇲 美国节点
-    include-all: true
-    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
     type: url-test
+    include-all: true
+    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|美国|美东|美西|美中|美南|美北|美国东部|美国西部|美国中部|美国南部
+    interval: 300
+    tolerance: 50
+  - name: DE 德国节点
+    type: url-test
+    include-all: true
+    filter: (?i)DE|德国|解锁|NL|英国|俄罗斯|France|France|法|法兰克福|荷兰|Amsterdam|阿姆斯特丹|芬兰|阿姆斯特丹|Netherlands|SE|瑞典|瑞士|Swiss|Swiss||挪威|Oslo|奥斯陆|Denmark|丹麦|Copenhagen|哥本哈根|比利时|UK|英国|爱尔兰
     interval: 300
     tolerance: 50
   - name: 🇨🇳 台湾节点
@@ -555,8 +580,8 @@ rule-providers:
     type: http
 
 rules:
-  - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
-  - "PROCESS-NAME,subs-check,🎯 全球直连"
+  - "PROCESS-NAME,subs-check.exe,📢 谷歌FCM"
+  - "PROCESS-NAME,subs-check,📢 谷歌FCM"
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
   - "RULE-SET,UnBan,🎯 全球直连"
   - "RULE-SET,BanAD,🛑 广告拦截"
