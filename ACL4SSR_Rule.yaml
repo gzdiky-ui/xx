@@ -305,7 +305,7 @@ proxy-groups:
   - name: DE 德国节点
     type: url-test
     include-all: true
-    filter: (?i)DE|德国|解锁|NL|英国|俄罗斯|France|France|法|法兰克福|荷兰|Amsterdam|阿姆斯特丹|芬兰|阿姆斯特丹|Netherlands|SE|瑞典|瑞士|Swiss|Swiss||挪威|Oslo|奥斯陆|Denmark|丹麦|Copenhagen|哥本哈根|比利时|UK|英国|爱尔兰
+    filter: (?i)德|英|俄罗斯|法|荷|阿|芬兰|瑞|挪威|丹麦
     interval: 300
     tolerance: 50
   - name: 🇨🇳 台湾节点
