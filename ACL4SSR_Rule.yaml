@@ -299,7 +299,7 @@ proxy-groups:
   - name: 🇺🇲 美国节点
     type: url-test
     include-all: true
-    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|美国|美东|美西|美中|美南|美北|美国东部|美国西部|美国中部|美国南部
+    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥
     interval: 300
     tolerance: 50
   - name: DE 德国节点
@@ -389,7 +389,6 @@ rule-providers:
     format: text
     type: http
   Cloudflare:
-    #url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflare/Cloudflare.yaml
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloudflarecn/Cloudflarecn.list
     path: ./RuleSet/Cloudflare.list
     behavior: classical
@@ -586,13 +585,6 @@ rules:
   - "RULE-SET,UnBan,🎯 全球直连"
   - "RULE-SET,BanAD,🛑 广告拦截"
   - "RULE-SET,BanProgramAD,🍃 应用净化"
-  - "RULE-SET,GoogleFCM,📢 谷歌FCM"
-  - "RULE-SET,GoogleCN,🎯 全球直连"
-  - "RULE-SET,SteamCN,🎯 全球直连"
-  - "RULE-SET,ChinaDomain,🎯 全球直连"
-  - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
-  - "RULE-SET,Download,🎯 全球直连"
-  - "GEOIP,CN,🎯 全球直连"
   - "RULE-SET,Cloudflare,🌏 Cloudflare"
   - "RULE-SET,Github,🌏 Github"
   - "RULE-SET,TikTok,📹 TikTok"
@@ -616,4 +608,11 @@ rules:
   - "RULE-SET,ChinaMedia,🌏 国内媒体"
   - "RULE-SET,ProxyMedia,🌍 国外媒体"
   - "RULE-SET,ProxyGFWlist,🚀 节点选择"
+  - "RULE-SET,GoogleFCM,📢 谷歌FCM"
+  - "RULE-SET,GoogleCN,🎯 全球直连"
+  - "RULE-SET,SteamCN,🎯 全球直连"
+  - "RULE-SET,ChinaDomain,🎯 全球直连"
+  - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
+  - "RULE-SET,Download,🎯 全球直连"
+  - "GEOIP,CN,🎯 全球直连"
   - "MATCH,🐟 漏网之鱼"
