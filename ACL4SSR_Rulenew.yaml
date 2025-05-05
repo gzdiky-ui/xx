@@ -17,7 +17,6 @@ pr:
           🇺🇲 美国节点,
           🔯 🇺🇲 美国故转,
           🇰🇷 韩国节点,
-          🚀 手动切换,
           DIRECT,
       ],
   }
@@ -27,7 +26,6 @@ proxy-groups:
       type: select,
       proxies:
         [
-          🍃 自动选择,
           🇭🇰 香港节点,
           DE 德国节点,
           🇨🇳 台湾节点,
@@ -35,37 +33,9 @@ proxy-groups:
           🇯🇵 日本节点,
           🇺🇲 美国节点,
           🇰🇷 韩国节点,
-          🚀 手动切换,
           DIRECT,
         ],
     }
-  - { 
-      name: 🍃 自动选择,
-      type: url-test,
-      include-all: true,
-      interval: 300,
-      tolerance: 50,
-    }
-  - { 
-      name: 🎯 全球直连,
-      type: select,
-      proxies:
-        [
-          DIRECT,
-          🚀 节点选择,
-          🍃 自动选择,
-        ],    
-    } 
-  - {
-      name:🚀 手动切换,
-      type: select,
-      proxies:
-        [
-          include-all: true
-          type: select
-          DIRECT,
-        ],    
-    }  
   - { name: 📹 YouTube, <<: *pr }
   - { name: 🤖 ChatGPT, <<: *pr }
   - { name: 👨🏿‍💻 GitHub, <<: *pr }
@@ -80,7 +50,7 @@ proxy-groups:
   #- { name: ✈️ Speedtest, <<: *pr }
   #- { name: 💶 PayPal, <<: *pr }
   #- { name: 🍎 Apple, type: select, proxies: [直连, 🚀 默认代理] }
-  #- { name: 🎯 直连, type: select, proxies: [直连, 🚀 默认代理] }
+   - { name: 🎯 全球直连, type: select, proxies: [直连, 🚀 默认代理] }
   #- {  name: 🛑 广告拦截,type: select,proxies:[REJECTm,DIRECT]}
   #- {  name: 🍃 应用净化,type: select,proxies:[REJECTm,DIRECT]}
   - {
@@ -310,7 +280,7 @@ rule-providers:
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 rules:
-  - SRC-IP-CIDR,192.168.16.42/32,🍃 自动选择
+  #- SRC-IP-CIDR,192.168.16.42/32,🍃 自动选择
   #- DOMAIN-SUFFIX,qichiyu.com,🍃 自动选择
   - RULE-SET,private_domain,🎯 全球直连
   - RULE-SET,cloudflare_domain,📺 cloudflare
