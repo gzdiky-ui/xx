@@ -1,304 +1,303 @@
-# 出站策略
-# 注意锚点必须放在引用的上方，可以集中把锚点全部放yaml的顶部。
 pr:
   &pr {
     type: select,
     proxies:
       [
-          🍃 自动选择,
-          🔯 香港故转,
-          ♻️ 香港自动,
-          🇭🇰 香港节点,
-          DE 德国节点,
-          DE 德国自动,
-          🇨🇳 台湾节点,
-          🇸🇬 狮城节点,
-          🇯🇵 日本节点,
-          🇺🇲 美国节点,
-          🔯 🇺🇲 美国故转,
-          🇰🇷 韩国节点,
-          DIRECT,
+        🚀 默认代理,
+        🔯 香港故转,
+        🔯 日本故转,
+        ♻️ 香港自动,
+        ♻️ 日本自动,
+        ♻️ 美国自动,
+        ♻️ 德国自动,
+        ♻️ 自动选择,
+        🇭🇰 香港节点,
+        🇯🇵 日本节点,
+        🇩🇪 德国节点,
+        🇺🇲 美国节点,
+        🌐 全部节点,
+        直连,
+      ],
+  }
+ur:
+  &ur {
+    type: url-test,
+    tolerance: 50,
+    interval: 300,
+    url: https://i.ytimg.com/generate_204,
+    timeout: 1000,
+    max-failed-times: 3,
+    proxies:
+      [
+        🚀 默认代理,
+        🔯 香港故转,
+        🔯 日本故转,
+        🔯 台韩新故转,
+        ♻️ 香港自动,
+        ♻️ 日本自动,
+        ♻️ 美国自动,
+        ♻️ 德国自动,
+        ♻️ 自动选择,
       ],
   }
 proxy-groups:
   - {
-      name: 🚀 节点选择,
+      name: 🚀 默认代理,
       type: select,
       proxies:
         [
+          🔯 香港故转,
+          🔯 日本故转,
+          ♻️ 香港自动,
+          ♻️ 日本自动,
+          ♻️ 美国自动,
+          ♻️ 德国自动,
+          ♻️ 自动选择,
           🇭🇰 香港节点,
-          DE 德国节点,
-          🇨🇳 台湾节点,
-          🇸🇬 狮城节点,
           🇯🇵 日本节点,
+          🇩🇪 德国节点,
           🇺🇲 美国节点,
-          🇰🇷 韩国节点,
-          DIRECT,
+          🌐 全部节点,
         ],
     }
-  - { name: 📹 YouTube, <<: *pr }
-  - { name: 🤖 ChatGPT, <<: *pr }
+  - { name: 🪟 Cloudflare, <<: *pr }
   - { name: 👨🏿‍💻 GitHub, <<: *pr }
-  - { name: 📺 cloudflare, <<: *pr }
-  - { name: 🌏 国内媒体, <<: *pr }
-  - { name: 🌏 国外媒体, <<: *pr }
-  - { name: 🎵 TikTok, <<: *pr }
-  - { name: 📲 Telegram, <<: *pr }
-  - { name: 🍀 Google, <<: *pr }
+  - { name: 📹 油管视频, <<: *pr }
+  - { name: 🍃 谷歌服务, <<: *ur }
+  - { name: 🤖 ChatGPT, <<: *pr }
+  - { name: 🐬 OneDrive, <<: *pr }
+  - { name: 🎯 全球直连, type: select, proxies: [直连, 🚀 默认代理] }
   - { name: 🐟 漏网之鱼, <<: *pr }
-  #- { name: 🎥 NETFLIX, <<: *pr }
-  #- { name: ✈️ Speedtest, <<: *pr }
-  #- { name: 💶 PayPal, <<: *pr }
-  #- { name: 🍎 Apple, type: select, proxies: [直连, 🚀 默认代理] }
-   - { name: 🎯 全球直连, type: select, proxies: [直连, 🚀 默认代理] }
-  #- {  name: 🛑 广告拦截,type: select,proxies:[REJECTm,DIRECT]}
-  #- {  name: 🍃 应用净化,type: select,proxies:[REJECTm,DIRECT]}
   - {
       name: 🇭🇰 香港节点,
-      include-all: true,
-      filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong|其他,
       type: select,
-      interval: 300,
-      tolerance: 50,
+      include-all: true,
+      filter: "(?i)港|hk|hongkong|hong kong",
     }
   - {
       name: 🇯🇵 日本节点,
-      include-all: true,
-      filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan,
       type: select,
-      interval: 300,
-      tolerance: 50,
+      include-all: true,
+      filter: "(?i)日|jp|japan",
     }
   - {
       name: 🇺🇲 美国节点,
-      include-all: true,
-      filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States,
       type: select,
-      interval: 300,
-      tolerance: 50,
+      include-all: true,
+      filter: "(?i)美|us|unitedstates|united states",
     }
   - {
-      name: DE 德国节点,
-      include-all: true,
-      filter: (?i)德|英|俄罗斯|法|荷|阿|芬兰|瑞|挪威|丹麦,
+      name: 🇩🇪 德国节点,
       type: select,
-      interval: 300,
-      tolerance: 50,
-    }  
-  - {
-      name: 🇨🇳 台湾节点,
       include-all: true,
-      filter: (?i)台|新北|彰化|TW|Taiwan,
-      type: select,
-      interval: 300,
-      tolerance: 50,
-    }
-  - {
-      name: 🇸🇬 狮城节点,
-      include-all: true,
-      filter: (?i)新加坡|坡|狮城|SG|Singapore,
-      type: select,
-      interval: 300,
-      tolerance: 50,
-    }
-  - {
-      name: 🇰🇷 韩国节点,
-      include-all: true,
-      filter: (?i)KR|Korea|KOR|首尔|韩|韓,
-      type: select,
-      interval: 300,
-      tolerance: 50,
+      filter: "(?i)德|de|germany|荷兰|英|巴|法|意|西|瑞士|瑞典|挪威|芬兰|丹麦|奥地利|比利时|爱尔兰|葡萄牙|希腊|捷克|匈牙利|波兰|罗马尼亚|斯洛伐克|保加利亚",
     }
   - {
       name: 🔯 香港故转,
-      include-all: true,
-      filter: (?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$,
       type: fallback,
-      interval: 300,
+      include-all: true,
       tolerance: 20,
+      interval: 300,
+      filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$",
     }
   - {
-      name: 🔯 🇺🇲 美国故转,
-      include-all: true,
-      filter: (?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$,
+      name: 🔯 日本故转,
       type: fallback,
-      interval: 300,
+      include-all: true,
       tolerance: 20,
+      interval: 300,
+      filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$",
     }
   - {
       name: ♻️ 香港自动,
-      include-all: true,
-      filter: (?=.*(港|HK|(?i)Hong))^((?!(台||日韩|新|深|美)).)*$,
       type: url-test,
-      interval: 300,
+      include-all: true,
       tolerance: 20,
+      interval: 300,
+      filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$",
     }
   - {
-      name: DE 德国自动,
-      include-all: true,
-      filter: (?=.*(德|英|俄罗斯|法|荷|阿|芬兰|瑞|挪威|丹麦))^((?!(港|台|韩|日|新|美)).)*$,
+      name: ♻️ 德国自动,
       type: url-test,
+      include-all: true,
+      tolerance:20,
       interval: 300,
+      filter: "(?=.*(德|de|germany|荷兰|英|巴|法|意|西|瑞士|瑞典|挪威|芬兰|丹麦|奥地利|比利时|爱尔兰|葡萄牙|希腊|捷克|匈牙利|波兰|罗马尼亚|斯洛伐克|保加利亚))^((?!(港|台|韩|新)).)*$",
+    }
+  - {
+      name: ♻️ 日本自动,
+      type: url-test,
+      include-all: true,
       tolerance: 20,
+      interval: 300,
+      filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$",
     }
+  - {
+      name: ♻️ 美国自动,
+      type: url-test,
+      include-all: true,
+      tolerance: 20,
+      interval: 300,
+      filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$",
+    }
+  - {
+      name: ♻️ 自动选择,
+      type: url-test,
+      include-all: true,
+      tolerance: 20,
+      interval: 300,
+      filter: "^((?!(直连)).)*$",
+    }
+  - { name: 🌐 全部节点, type: select, include-all: true }
 
-# 规则集
-rule-anchor:
-  ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
-  domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
-  class:
-    &class { type: http, interval: 86400, behavior: classical, format: text }
 rule-providers:
-  private_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs",
-    }
-  proxylite_domain:
-    {
-      <<: *class,
-      url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list",
-    }
-  ai_domain:
-    {
-      <<: *domain,
-      url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ai-!cn.mrs",
-    }
-  youtube_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs",
-    }
-  google_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs",
-    }
-  github_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs",
-    }
-  telegram_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs",
-    }
-  netflix_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs",
-    }
-  paypal_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs",
-    }
-  onedrive_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs",
-    }
-  microsoft_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs",
-    }
-  cloudflare_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs",
-    }
-  speedtest_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs",
-    }
-  tiktok_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs",
-    }
-  gfw_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs",
-    }
-  geolocation-!cn:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs",
-    }
-  cn_domain:
-    {
-      <<: *domain,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
-    }
-
-  cn_ip:
-    {
-      <<: *ip,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs",
-    }
-  google_ip:
-    {
-      <<: *ip,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs",
-    }
-  telegram_ip:
-    {
-      <<: *ip,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs",
-    }
-  netflix_ip:
-    {
-      <<: *ip,
-      url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs",
-    }
-
+  LocalAreaNetwork:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+    path: ./ruleset/LocalAreaNetwork.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  UnBan:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list
+    path: ./ruleset/UnBan.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
   BanAD:
-    {
-      <<: *class,
-      url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list,
-    }
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
+    path: ./ruleset/BanAD.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
   BanProgramAD:
-    {
-      <<: *class,
-      url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list,
-    }
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list
+    path: ./ruleset/BanProgramAD.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  GoogleCN:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
+    path: ./ruleset/GoogleCN.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Telegram:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list
+    path: ./ruleset/Telegram.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  AI:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/AI.list
+    path: ./ruleset/AI.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  OpenAi:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
+    path: ./ruleset/OpenAi.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  YouTube:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
+    path: ./ruleset/YouTube.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  BilibiliHMT:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/BilibiliHMT.list
+    path: ./ruleset/BilibiliHMT.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Bilibili:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bilibili.list
+    path: ./ruleset/Bilibili.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
   ChinaMedia:
-    {
-      <<: *class,
-      url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaMedia.list,
-    }
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaMedia.list
+    path: ./ruleset/ChinaMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
   ProxyMedia:
-    {
-      <<: *class,
-      url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list,
-    }
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list
+    path: ./ruleset/ProxyMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ProxyGFWlist:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyGFWlist.list
+    path: ./ruleset/ProxyGFWlist.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaDomain:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+    path: ./ruleset/ChinaDomain.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaCompanyIp:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
+    path: ./ruleset/ChinaCompanyIp.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Download:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
+    path: ./ruleset/Download.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  GitHub:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GitHub.list
+    path: ./ruleset/GitHub.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Cloudflare:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Cloudflare.list
+    path: ./ruleset/Cloudflare.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
 
-# 规则匹配
-# 此规则部分没有做防泄露处理，因为弊严重大于利！
 rules:
-  #- SRC-IP-CIDR,192.168.16.42/32,🍃 自动选择
-  #- DOMAIN-SUFFIX,qichiyu.com,🍃 自动选择
-  - RULE-SET,private_domain,🎯 全球直连
-  - RULE-SET,cloudflare_domain,📺 cloudflare
-  - RULE-SET,proxylite_domain,🚀 节点选择
-  - RULE-SET,ai_domain,🤖 ChatGPT
-  - RULE-SET,github_domain,👨🏿‍💻 GitHub
-  #- RULE-SET,BanAD,REJECT
-  #- RULE-SET,BanProgramAD,REJECT
-  - RULE-SET,youtube_domain,📹 YouTube
-  - RULE-SET,google_domain,🍀 Google
-  - RULE-SET,tiktok_domain,🎵 TikTok
-  - RULE-SET,telegram_domain,📲 Telegram
-  - RULE-SET,ChinaMedia,🌏 国内媒体
-  - RULE-SET,ProxyMedia,🌍 国外媒体
-  - RULE-SET,gfw_domain,🚀 节点选择
-  - RULE-SET,geolocation-!cn,🚀 节点选择
-  - RULE-SET,cn_domain,🎯 全球直连
-  - RULE-SET,google_ip,🍀 Google,no-resolve
-  - RULE-SET,telegram_ip,📲 Telegram,no-resolve
-  - RULE-SET,cn_ip,🎯 全球直连
-  - MATCH,🐟 漏网之鱼
+  - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
+  - "PROCESS-NAME,subs-check,🎯 全球直连"
+  - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
+  - "RULE-SET,GoogleCN,🍃 谷歌服务"
+  - "RULE-SET,Cloudflare,🪟 Cloudflare"
+  - "RULE-SET,OpenAi,🤖 ChatGPT"
+  - "RULE-SET,GitHub,👨🏿‍💻 GitHub"
+  - "RULE-SET,AI,🤖 ChatGPT"
+  - "RULE-SET,YouTube,📹 油管视频"
+  - "RULE-SET,ProxyGFWlist,🚀 默认代理"
+  - "RULE-SET,ChinaDomain,🎯 全球直连"
+  - "RULE-SET,ChinaCompanyIp,直连"
+  - "RULE-SET,Download,🎯 全球直连"
+  - "GEOIP,CN,🎯 全球直连"
+  - "MATCH,🐟 漏网之鱼"
