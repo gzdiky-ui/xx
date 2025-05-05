@@ -26,7 +26,6 @@ ur:
     interval: 300,
     url: https://i.ytimg.com/generate_204,
     timeout: 1000,
-    max-failed-times: 3,
     proxies:
       [
         🚀 默认代理,
@@ -67,7 +66,7 @@ proxy-groups:
   - { name: 🤖 ChatGPT, <<: *pr }
   - { name: 🐬 OneDrive, <<: *pr }
   - { name: 🎯 全球直连, type: select, proxies: [直连, 🚀 默认代理] }
-  - { name: 🐟 漏网之鱼, <<: *pr }
+  - { name: 🐟 漏网之鱼, <<: *ur }
   - {
       name: 🇭🇰 香港节点,
       type: select,
