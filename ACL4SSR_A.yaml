@@ -28,11 +28,11 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
   - name: 📹 油管视频
-    type: url-test
+    type: select
     tolerance: 100
-    interval: 60
+    interval: 300
     url: https://i.ytimg.com/generate_204
-    timeout: 2000
+    timeout: 1500
     max-failed-times: 3
     proxies:
       - 🚀 节点选择
@@ -65,7 +65,7 @@ proxy-groups:
     type: url-test
     include-all: true
     interval: 300
-    tolerance: 50
+    tolerance: 30
   - name: 📲 电报消息
     type: select
     proxies:
@@ -138,6 +138,14 @@ proxy-groups:
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🚀 手动切换
+  - name: 📲 Discord
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🚀 手动切换
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -155,13 +163,11 @@ proxy-groups:
       - REJECT
       - DIRECT
   - name: 🐟 漏网之鱼
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
+      - DIRECT
       - 🇭🇰 香港节点
       - 🇩🇪 德国节点
       - 🇨🇳 台湾节点
@@ -373,6 +379,7 @@ rules:
   - "RULE-SET,Github,🌏 Github"
   - "RULE-SET,TikTok,📹 TikTok"
   - "RULE-SET,Telegram,📲 电报消息"
+  - "RULE-SET,Discord,📲 Discord"
   - "RULE-SET,AI,💬 Ai平台"
   - "RULE-SET,OpenAi,💬 Ai平台"
   - "RULE-SET,YouTube,📹 油管视频"
