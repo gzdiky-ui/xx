@@ -1,0 +1,520 @@
+# --- File: 11OKOK.yaml (最终修复版，无 emoji，确保组名匹配) ---
+# --- 最小化修复版配置 ---
+
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+ipv6: false # 暂时关闭 IPv6 避免时间同步超时
+log-level: warning
+profile:
+  store-selected: true
+
+external-controller: 127.0.0.1:9090
+secret: "ktEnO8gu"
+
+# TUN 模式（可选，如果你不需要可以关闭）
+tun:
+  enable: false # 先关闭 TUN，减少复杂性
+
+# DNS 配置（简化）
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https://119.29.29.29/dns-query
+
+# 机场订阅
+proxy-providers:
+  EDGET机场:
+    url: "https://edget.269228.dpdns.org/sub?token=78377fc91c2356145942a9366bc811a7&clash"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  CFNEW机场:
+    url: "https://cfnew.269228.dpdns.org/c67378d0-60e3-4b06-b673-e568224b033d/sub?target=clash"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  free机场:
+    url: "https://free.269228.dpdns.org/sub?token=f9306eee91fbb4e7a7bef8ad2b904c61&clash"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  newsub机场:
+    url: "https://newsub.269228.dpdns.org/q1w2e3r4"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+
+# --- 代理组 (所有名称不含 emoji，与 rules 严格匹配) ---
+proxy-groups:
+  # 默认代理选择组
+  - name: Default
+    type: select
+    proxies:
+      - HK_Auto
+      - JP_Auto
+      - US_Auto
+      - TW_Auto
+      - All_Nodes
+      - Auto_Select
+      - HK_SameIP
+      - JP_RoundRobin
+      - US_Random
+      - SG_RoundRobin
+      - ChatGPT
+      - Fallback
+      - Mobile_Auto
+      - Prefer_Auto
+      - Telecom_Auto
+      # 基础直连节点
+      - DIRECT
+
+  # Cloudflare 组
+  - name: Cloudflare
+    type: select
+    load-balance:
+      strategy: rfc
+    proxies:
+      - All_Nodes
+      - HK_Auto
+      - Default
+      - HK_SameIP
+      - DIRECT
+    tolerance: 50
+    interval: 300
+    url: https://i.ytimg.com/generate_204
+    timeout: 1000
+
+  # GitHub 组 (fallback 不支持负载均衡，已删除 load-balance)
+  - name: GitHub
+    type: select
+    proxies:
+      - All_Nodes
+      - HK_Auto
+      - JP_Auto
+      - US_Auto
+      - TW_Auto
+      - Auto_Select
+      - HK_SameIP
+      - JP_RoundRobin
+      - US_Random
+      - SG_RoundRobin
+      - ChatGPT
+      - Fallback
+      - Mobile_Auto
+      - Prefer_Auto
+      - Telecom_Auto
+      # 基础直连节点
+      - DIRECT
+
+  # YouTube 组
+  - name: YouTube
+    type: select
+    load-balance:
+      strategy: rfc
+    tolerance: 50
+    interval: 300
+    url: https://i.ytimg.com/generate_204
+    timeout: 1000
+    proxies:
+      - All_Nodes
+      - HK_Auto
+      - JP_Auto
+      - US_Auto
+      - TW_Auto
+      - Prefer_Auto
+      - Mobile_Auto
+      - Telecom_Auto
+      - Default
+      - HK_SameIP
+      - DIRECT
+
+  # Google 服务组 (规则中引用名称 "GoogleServices")
+  - name: GoogleServices
+    type: url-test
+    tolerance: 50
+    interval: 300
+    url: https://i.ytimg.com/generate_204
+    timeout: 1000
+    proxies:
+      - All_Nodes
+      - HK_Auto
+      - JP_Auto
+      - US_Auto
+      - TW_Auto
+      - Auto_Select
+      - HK_SameIP
+      - JP_RoundRobin
+      - US_Random
+      - SG_RoundRobin
+      - ChatGPT
+      - Fallback
+      - Mobile_Auto
+      - Prefer_Auto
+      - Telecom_Auto
+      # 基础直连节点
+      - DIRECT
+
+  # ChatGPT 组
+  - name: ChatGPT
+    type: select
+    proxies: [All_Nodes, Default]
+
+  # 全球直连组
+  - name: Direct
+    type: select
+    proxies: [DIRECT, Default]
+
+  # 漏网之鱼组
+  - name: Fallback
+    type: url-test
+    load-balance:
+      strategy: rfc
+    tolerance: 50
+    interval: 300
+    url: https://i.ytimg.com/generate_204
+    timeout: 1000
+    proxies:
+      - All_Nodes
+      - HK_Auto
+      - JP_Auto
+      - US_Auto
+      - TW_Auto
+      - HK_SameIP
+      - JP_RoundRobin
+      - Mobile_Auto
+      - Prefer_Auto
+      - Telecom_Auto
+      # 基础直连节点
+      - DIRECT
+
+  # ========== 自动选择组 (Smart) ==========
+  - name: HK_Auto
+    type: smart
+    use: ["free机场"]
+    tolerance: 50
+    interval: 300
+    filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"
+
+  - name: JP_Auto
+    type: smart
+    use: ["free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"
+
+  - name: US_Auto
+    type: smart
+    use: ["free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"
+
+  - name: TW_Auto
+    type: smart
+    use: ["free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(台|新北|彰化|TW|Taiwan))^((?!(港|日|韩|美)).)*$"
+
+  - name: Mobile_Auto
+    type: smart
+    use: ["EDGET机场", "CFNEW机场", "free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(移动|SG|官))^((?!(HKG|日|IPv6|美)).)*$"
+
+  - name: Prefer_Auto
+    type: smart
+    use: ["EDGET机场", "free机场", "newsub机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(优选|TW|官))^((?!(港|IPv6)).)*$"
+
+  - name: Telecom_Auto
+    type: smart
+    use: ["EDGET机场", "CFNEW机场", "free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(电信|联通|CF))^((?!(ipv6)).)*$"
+
+  - name: Auto_Select
+    type: smart
+    use: ["EDGET机场", "CFNEW机场", "free机场", "newsub机场"]
+    tolerance: 20
+    interval: 300
+    filter: "^((?!(DIRECT)).)*$"
+
+  - name: All_Nodes
+    type: select
+    use: ["EDGET机场", "CFNEW机场", "free机场", "newsub机场"]
+
+  # ========== 负载均衡组 (type: select + load-balance) ==========
+  - name: HK_SameIP
+    type: select
+    load-balance:
+      strategy: consistent-hash
+    use: ["EDGET机场", "CFNEW机场", "free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"
+
+  - name: JP_RoundRobin
+    type: select
+    load-balance:
+      strategy: rfc
+    use: ["EDGET机场", "CFNEW机场", "free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"
+
+  - name: US_Random
+    type: select
+    load-balance:
+      strategy: random
+    use: ["EDGET机场", "CFNEW机场", "free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"
+
+  - name: SG_RoundRobin
+    type: select
+    load-balance:
+      strategy: rfc
+    use: ["EDGET机场", "CFNEW机场", "free机场"]
+    tolerance: 20
+    interval: 300
+    filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(港|台|日|韩|美)).)*$"
+
+# --- 规则集配置 ---
+rule-anchor:
+  ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
+  domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
+  class:
+    &class { type: http, interval: 86400, behavior: classical, format: text }
+
+rule-providers:
+  fakeipfilter_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"
+    path: ./rule_providers/fakeip-filter.mrs
+    behavior: domain
+    interval: 86400
+    format: mrs
+
+  LocalAreaNetwork:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list"
+    path: ./rule_providers/LocalAreaNetwork.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  UnBan:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list"
+    path: ./rule_providers/UnBan.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  BanAD:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
+    path: ./rule_providers/BanAD.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  BanProgramAD:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list"
+    path: ./rule_providers/BanProgramAD.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  GoogleCN:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list"
+    path: ./rule_providers/GoogleCN.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  Telegram:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list"
+    path: ./rule_providers/Telegram.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  AI:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list"
+    path: ./rule_providers/AI.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  OpenAi:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list"
+    path: ./rule_providers/OpenAi.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  YouTube:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list"
+    path: ./rule_providers/YouTube.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  ChinaMedia:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list"
+    path: ./rule_providers/ChinaMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  ProxyMedia:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list"
+    path: ./rule_providers/ProxyMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  ProxyGFWlist:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
+    path: ./rule_providers/ProxyGFWlist.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  ChinaDomain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
+    path: ./rule_providers/ChinaDomain.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  ChinaCompanyIp:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
+    path: ./rule_providers/ChinaCompanyIp.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  Download:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list"
+    path: ./rule_providers/Download.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  GitHub:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"
+    path: ./rule_providers/github.mrs
+
+  Cloudflare:
+    <<: *class
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Cloudflare.list"
+    path: ./rule_providers/Cloudflare.list
+    behavior: classical
+    interval: 86400
+    format: text
+
+  private_ip:
+    <<: *ip
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"
+    path: ./rule_providers/private.mrs
+
+  cn_ip:
+    <<: *ip
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
+    path: ./rule_providers/cn.mrs
+
+  google_ip:
+    <<: *ip
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"
+    path: ./rule_providers/google.mrs
+
+  telegram_ip:
+    <<: *ip
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"
+    path: ./rule_providers/telegram.mrs
+
+  geolocation-!cn:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"
+    path: ./rule_providers/geolocation-!cn.mrs
+    behavior: domain
+    interval: 86400
+    format: mrs
+
+  cn_domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
+    path: ./rule_providers/cn_domain.mrs
+    behavior: domain
+    interval: 86400
+    format: mrs
+
+# --- 规则 (组名已全部替换为英文，与 proxy-groups 一致) ---
+rules:
+  - PROCESS-NAME,subs-check.exe,DIRECT
+  - PROCESS-NAME,subs-check,DIRECT
+  - RULE-SET,fakeipfilter_domain,Default
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,UnBan,REJECT
+  - RULE-SET,BanAD,REJECT
+  - RULE-SET,BanProgramAD,REJECT
+  - RULE-SET,GoogleCN,GoogleServices
+  - RULE-SET,Cloudflare,Cloudflare
+  - RULE-SET,OpenAi,ChatGPT
+  - RULE-SET,GitHub,GitHub
+  - RULE-SET,AI,ChatGPT
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,ProxyGFWlist,Default
+  - RULE-SET,ChinaDomain,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
+  - RULE-SET,Download,Default
+  - RULE-SET,ChinaMedia,DIRECT
+  - RULE-SET,ProxyMedia,Default
+  - RULE-SET,Telegram,Default
+  - RULE-SET,google_ip,GoogleServices
+  - RULE-SET,telegram_ip,Default
+  - RULE-SET,geolocation-!cn,Default
+  - RULE-SET,cn_domain,DIRECT
+  - RULE-SET,cn_ip,DIRECT
+  - MATCH,Fallback
