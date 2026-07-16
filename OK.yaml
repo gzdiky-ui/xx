@@ -7,7 +7,7 @@ profile:
   store-selected: true
 
 external-controller: 127.0.0.1:9090
-secret: "ktEnO8gu"
+secret: "lhK2B58m"
 
 # TUN 模式（可选，如果你不需要可以关闭）
 tun:
@@ -20,8 +20,8 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver:
-    - 208.67.222.222
-    - 119.29.29.29
+    - 120.196.165.24
+    - 211.136.192.6
   nameserver:
     - https://119.29.29.29/dns-query
 
@@ -76,7 +76,6 @@ proxy-groups:
       - JP_RoundRobin
       - US_Random
       - SG_RoundRobin
-      - ChatGPT
       - Fallback
       - Mobile_Auto
       - Prefer_Auto
@@ -114,7 +113,6 @@ proxy-groups:
       - JP_RoundRobin
       - US_Random
       - SG_RoundRobin
-      - ChatGPT
       - Fallback
       - Mobile_Auto
       - Prefer_Auto
@@ -162,7 +160,6 @@ proxy-groups:
       - JP_RoundRobin
       - US_Random
       - SG_RoundRobin
-      - ChatGPT
       - Fallback
       - Mobile_Auto
       - Prefer_Auto
